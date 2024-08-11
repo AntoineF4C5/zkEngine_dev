@@ -7,6 +7,7 @@ use std::{cell::RefCell, marker::PhantomData, rc::Rc, time::Instant};
 
 // TODO: remove `pub`
 pub use public_values::ExecutionPublicValues;
+use serde::{Deserialize, Serialize};
 
 use crate::{
   circuits::{
@@ -222,7 +223,7 @@ where
   S1: RelaxedR1CSSNARKTrait<E1>,
   S2: RelaxedR1CSSNARKTrait<Dual<E1>>,
 {
-  execution_proof: BatchedExecutionProof<E1, BS1, S2>,
+  pub execution_proof: BatchedExecutionProof<E1, BS1, S2>,
   mcc_proof: BatchedMCCProof<E1, S1, S2>,
 }
 
